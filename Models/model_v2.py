@@ -93,6 +93,12 @@ def pre_process_data(crime_data):
     training_data_labels = np.array(training_data_labels)
     testing_data_labels = np.array(testing_data_labels)
 
+    #convert to float numpy arrays
+    training_data = training_data.astype(float)
+    testing_data = testing_data.astype(float)
+    training_data_labels = training_data_labels.astype(float)
+    testing_data_labels = testing_data_labels.astype(float)
+
 #the final step in preprocessing the training and testing data is to normalize between 0 and 1.
 
     scaler = MinMaxScaler(feature_range=(0,1))
@@ -136,16 +142,32 @@ def get_unnormalized_train_and_test_data(crime_data):
     #remove the "parent_incident_type"
     training_data.pop("parent_incident_type")
     testing_data.pop("parent_incident_type")
-    return np.array(training_data), np.array(testing_data)
+    return np.array(training_data).astype(float), np.array(testing_data).astype(float)
 
 
 #model is the machine learning model being used
-#current_location is a numpy array with the latitude and longitude in it. 
+#current_parameters is a list containing the day_of_week, hour_of_day, latitude and longitude 
 #testing_data is an unnormalized numpy array with day_of_week, hour_of_day, latitude and longitude 
 #returns a list with the probabilies of car being broken into
 # probability at index 0 is for false and index 1 is for true (car broken into)
-def get_current_location_probability(model, current_location, weekday, hour, testing_data):
-    #working on it
-    return 
+def get_current_location_probability(model, current_parameters, testing_data):
+    
+    #first convert the current_parameters to a numpy array
+    current_parameters = np.array(current_parameters)
+    #then append the user's data to the testing_data
+    current_testing_data = np.append(testing_data, [current_parameters], axis=0)
+
+    #now normalize the data
+    scaler = MinMaxScaler(feature_range=(0,1))
+    current_testing_data_scaled = scaler.fit_transform(current_testing_data)
+    print(current_testing_data_scaled )
+    current_prediction = model.predict(current_testing_data_scaled, batch_size = 10, verbose = 0)
+    #return the prediction
+    return current_prediction[-1]
+
+def save_data(filename,data_to_be_saved):
+    #save as .npy 
+    np.save(filename, data_to_be_saved)
+
 
 

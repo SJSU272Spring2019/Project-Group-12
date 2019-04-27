@@ -6,7 +6,7 @@
 import math
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 from load_data import get_data
 from sklearn.preprocessing import MinMaxScaler
 
