@@ -13,7 +13,7 @@ import numpy as np
 
 #file_name = "un_normalized_testing_data2"
 
-testing = np.load("un_normalized_testing_data2.npy")
+testing = model_v2.load_testing_data()
 
 
 
@@ -36,12 +36,14 @@ new_model = tf.keras.models.load_model('Final_ML_Model')
 #test lat and log
 lat = 37.410740
 log = -121.953370
-day = 6
+day = 2
 hour = 23
 # train, test = get_test_and_train_data(data)
 
 parameters = [day, hour, lat, log]
-print(model_v2.get_current_location_probability(new_model, parameters, testing))
+pro = model_v2.get_current_location_probability(new_model, parameters, testing)
+print(pro)
+
 
 
 # write api to talk to front end

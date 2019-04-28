@@ -1,6 +1,7 @@
 # Final ML model 
 
 # Rene Figueroa 4/23/2019
+# CMPE 272 Final Project
 
 # Helper libraries
 import math
@@ -19,12 +20,6 @@ tf.logging.set_verbosity(tf.logging.ERROR)
 # The crime_data argument is the data obtained from moto.data.socrata.com
 # it pre process the data for the machine learning to be trained. 
 # it returns the scaled training and testing data along with its corressponding labels as numpy arrays
-
-
-#create another function to pop the data
-
-#COPY OVER FROM JUPYTER NOTEBOOK
-#INCREASE ACCURACY FROM 70% TO 80-85%
 
 #returns the data colums we are interested in keeping:
 #day_of_week, hour_of_day, latitude, longitude and parent_incident_type
@@ -84,8 +79,6 @@ def pre_process_data(crime_data):
 #Since Keras takes the input information as np arrays, we need to convert the data frame to such data structure.
 #The order for the data in training and testing sets is day_of_week, hour_of_day, latitude, longitude
 
-#[[2 '8' '37.33777289850083' '-122.0131484592137']
- #[2 '17' '37.33713357367402' '-121.88723116390365']
 
     training_data = np.array(training_data)
     testing_data = np.array(testing_data)
@@ -160,7 +153,7 @@ def get_current_location_probability(model, current_parameters, testing_data):
     #now normalize the data
     scaler = MinMaxScaler(feature_range=(0,1))
     current_testing_data_scaled = scaler.fit_transform(current_testing_data)
-    print(current_testing_data_scaled )
+    
     current_prediction = model.predict(current_testing_data_scaled, batch_size = 10, verbose = 0)
     #return the prediction
     return current_prediction[-1]
@@ -168,6 +161,22 @@ def get_current_location_probability(model, current_parameters, testing_data):
 def save_data(filename,data_to_be_saved):
     #save as .npy 
     np.save(filename, data_to_be_saved)
+
+def load_testing_data():
+    return np.load("unnormalized_testing_data.npy")
+
+def convert_to_dictionary(list_of_parameters):
+    para_dict = {
+    "day": list_of_parameters[0],
+    "hour": list_of_parameters[1],
+    "latitude": list_of_parameters[2],
+    "longitude": list_of_parameters[3]
+    }
+    return para_dict
+
+
+
+
 
 
 
