@@ -11,8 +11,9 @@ from CurrentLocation import *
 locations = []
 
 username = 'renefigueroa'
-sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
-
+#sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
+sys.path.append('/prog/GitHub/Project-Group-12/Models')
+print("test")
 import model_v2
 
 #let's load the testing data
@@ -32,7 +33,7 @@ def car_break_ins_page():
 		#http://127.0.0.1:5000/probability?day=0&hour=23&latitude=37.410740&longitude=-121.953370
 		# 2. ONCE PROBABILITY IS OBTAINED UPDATE THE FRONT END
 		# 3. INTEGRATE GOOGLE MAPS
-		probability = 
+		#probability = 
 		new_location = CurrentLocation(day=current_location_day, hour=current_location_hour, latitude=current_location_latitude, longitude=current_location_longitude)
 		locations.append(new_location)
 
