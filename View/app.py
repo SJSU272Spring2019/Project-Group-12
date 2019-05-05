@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, Response 
+from flask import Flask, jsonify, request, Response, render_template, url_for, redirect
 import numpy as np
 import sys
 import json
@@ -8,7 +8,9 @@ import tensorflow as tf
 from settings import *
 from CurrentLocation import *
 
-username = 'renfigue'
+locations = []
+
+username = 'renefigueroa'
 sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
 
 import model_v2
@@ -17,6 +19,26 @@ import model_v2
 #make sure there is a set of data saved under the API directory
 testing = model_v2.load_testing_data()
 
+
+@app.route("/", methods=["GET", "POST"])
+def car_break_ins_page():
+	if request.method == "POST":
+		current_location_day = request.form.get("day", "")
+		current_location_hour= request.form.get("hour", "")
+		current_location_latitude = request.form.get("latitude", "")
+		current_location_longitude = request.form.get("longitude", "")
+		# TO DOS
+		# 1. NEED TO FIGURE OUT HOW TO CALL THE PROBABILITY END POINT 
+		#http://127.0.0.1:5000/probability?day=0&hour=23&latitude=37.410740&longitude=-121.953370
+		# 2. ONCE PROBABILITY IS OBTAINED UPDATE THE FRONT END
+		# 3. INTEGRATE GOOGLE MAPS
+		probability = 
+		new_location = CurrentLocation(day=current_location_day, hour=current_location_hour, latitude=current_location_latitude, longitude=current_location_longitude)
+		locations.append(new_location)
+
+		return redirect(url_for("car_break_ins_page"))
+		
+	return render_template("index.html", locations=locations)
 
 
 #root directory returns all parameters for last location in testing data
@@ -97,6 +119,7 @@ def delete_current_location():
 	response = Response(json.dumps(invalidCurrentLocationErrorMsg), status=404, mimetype='application/json')
 	return response
 
-
+if __name__ == "__main__":
+	app.run(debug=True)
 
 app.run(port=5000)

@@ -5,6 +5,8 @@ from settings import app
 
 db = SQLAlchemy(app)
 
+locations = []
+
 class CurrentLocation(db.Model):
 	__tablename__ = 'current_location'
 	id = db.Column(db.Integer, primary_key = True)
@@ -30,6 +32,7 @@ class CurrentLocation(db.Model):
 	   self.hour = hour
 	   self.latitude = latitude
 	   self.longitude = longitude
+	   locations.append(self)
 
 	def delete_current_parameters(_day,_hour,_latitude,_longitude):
 		is_susccessful = CurrentLocation.query.filter_by(day=_day,hour=_hour, latitude=_latitude,longitude=_longitude).delete()
