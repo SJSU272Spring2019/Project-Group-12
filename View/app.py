@@ -13,8 +13,8 @@ from CurrentLocation import *
 locations = []
 
 
-username = 'renefigueroa'
-sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
+username = 'Vignesh'
+sys.path.append('/Users/'+username+'/Documents/CMPE272Project/Project-Group-12/Models')
 
 import model_v2
 
@@ -22,10 +22,44 @@ import model_v2
 #make sure there is a set of data saved under the API directory
 testing = model_v2.load_testing_data()
 
-@app.route("/#map")
-def about_page():
-	return render_template("index.html")
+@app.route("/interactivemap.html")
+def map_page():
+	#return "Hi map!"
+	return render_template("interactivemap.html")
 
+# @app.route("/#map")
+# def mapview():
+# 	# creating a map in the view
+#     mymap = Map(
+#         identifier="view-side",
+#         lat=37.4419,
+#         lng=-122.1419,
+#         markers=[(37.4419, -122.1419)]
+#     )
+#     sndmap = Map(
+#         identifier="sndmap",
+#         lat=37.4419,
+#         lng=-122.1419,
+#         markers=[
+#           {
+#              'icon': 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+#              'lat': 37.4419,
+#              'lng': -122.1419,
+#              'infobox': "<b>Hello World</b>"
+#           },
+#           {
+#              'icon': 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+#              'lat': 37.4300,
+#              'lng': -122.1400,
+#              'infobox': "<b>Hello World from other place</b>"
+#           }
+#         ]
+#     )
+#     return render_template('map.html', mymap=mymap, sndmap=sndmap)
+
+@app.route("/about.html")
+def about_page():
+	return render_template("about.html")
 
 
 @app.route("/", methods=["GET", "POST"])
