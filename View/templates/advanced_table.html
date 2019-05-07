@@ -47,7 +47,6 @@
       <!--logo end-->
      
       </div>
-      <
     </header>
     <!--header end-->
     <!-- **********************************************************************************************************************************************************
@@ -88,13 +87,13 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Advanced Table Example</h3>
+        <h3><i class="fa fa-angle-right"></i>Table Queries</h3>
         <div class="row mb">
           <!-- page start-->
           <div class="content-panel">
             <div class="adv-table">
               <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
-                <thead>
+                <!--<thead>
                   <tr>
                     <th>Rendering engine</th>
                     <th>Browser</th>
@@ -132,11 +131,67 @@
                     <td class="center hidden-phone">6</td>
                     <td class="center hidden-phone">A</td>
                   </tr>                               
+                </tbody> -->
+
+                <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Probability</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for location in locations %}
+                <tr>
+                    <td>{{ location.day }}</td>
+                    <td>{{ location.hour }}</td>
+                    <td>{{ location.latitude }}</td>
+                    <td>{{ location.longitude }}</td>
+                    <td>{{ location.probability }}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Edit</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+                {% endfor %}
                 </tbody>
               </table>
             </div>
           </div>
           <!-- page end-->
+        </div>
+        <div class="page-header">
+         <!-- <h3>
+          {{locations}}               
+          </h3> -->
+        <h1>Add new query (location, time, and day)</h1>
+        </div>    
+        <div class="row">
+            <div class="col-md-8">
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="student-id">Day</label>
+                        <input type="text" class="form-control" id="day" placeholder="Monday" name="day">
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">Time</label>
+                        <input type="text" class="form-control" id="hour" placeholder="HH:MM:SS" name="hour">
+                    </div>
+                    <div class="form-group">
+                        <label for="latitude">Latitude</label>
+                        <input type="text" class="form-control" id="latitude" placeholder="37.3223" name="latitude">
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude">Longitude</label>
+                        <input type="text" class="form-control" id="longitude" placeholder="-121.3423" name="longitude">
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
         </div>
         <!-- /row -->
       </section>

@@ -10,10 +10,29 @@ import re
 from settings import *
 from CurrentLocation import *
 
+#{"day": "Monday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 51.52}
 locations = []
+#locations.append({"day": "Sunday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 69.95})
+#locations.append({'day': 'Monday', 'hour': '12:00:00', 'latitude': '37.3223', 'longitude': '-121.3423', 'probability': 51.52})
+#locations.append({"day": "Tuesday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 60.05})
+#locations.append({"day": "Wednesday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 68.03})
+#locations.append({"day": "Thursday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 74.75})
+#locations.append({"day": "Friday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 79.33})
+#locations.append({"day": "Saturday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 78.22})
+
+#locations.append({"day": "Monday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 51.52})
+
+locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 31.2},
+{"day": "Tuesday", "hour": "12:00:00", "latitude": "37.338345", "longitude": "-121.880882", "probability": 39.26}, 
+{"day": "Sunday", "hour": "12:00:00", "latitude": "37.331386", "longitude": "-121.883021", "probability": 69.58}, 
+{"day": "Wednesday", "hour": "12:00:00", "latitude": "37.332566", "longitude": "-121.885002", "probability": 47.99}, 
+{"day": "Thursday", "hour": "12:00:00", "latitude": "37.333202", "longitude": "-121.890130", "probability": 60.47}, 
+{"day": "Friday", "hour": "12:00:00", "latitude": "37.330216", "longitude": "-121.887609", "probability": 70.45}, 
+{"day": "Saturday", "hour": "12:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 70.72}] 
 
 
-username = 'renefigueroa'
+# Change this value for your machine
+#username = 'renefigueroa'
 #sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
 sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
 
@@ -23,9 +42,13 @@ import model_v2
 #make sure there is a set of data saved under the API directory
 testing = model_v2.load_testing_data()
 
-
 @app.route("/", methods=["GET", "POST"])
 @app.route("/index.html", methods=["GET", "POST"])
+def about_index():
+	return render_template("index.html", locations=locations)
+
+#maps page
+@app.route("/advanced_table.html", methods=["GET", "POST"])
 def car_break_ins_page():
 	if request.method == "POST":
 		_day = request.form.get("day", "")
@@ -52,7 +75,8 @@ def car_break_ins_page():
 
 		return redirect(url_for("car_break_ins_page"))
 		
-	return render_template("index.html", locations=locations)
+	#return render_template("index.html", locations=locations)
+	return render_template("advanced_table.html", locations=locations)
 
 
 #root directory returns all parameters for last location in testing data
@@ -157,10 +181,8 @@ def format_time(time):
 
 
 
-#maps page
-@app.route("/advanced_table.html")
-def about_page2():
-	return render_template("advanced_table.html")
+
+	
 
 
 #table page
@@ -173,6 +195,6 @@ def about_page3():
 
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(debug=True, use_reloader=True)
 
 app.run(port=5000)
