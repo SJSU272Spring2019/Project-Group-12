@@ -50,3 +50,8 @@ class CurrentLocation(db.Model):
 
 	def get_all_parameters():
 		return [CurrentLocation.json(location) for location in CurrentLocation.query.all()]
+
+	def clear_data_base():
+		for location in CurrentLocation.query.all():
+			CurrentLocation.query.filter_by(day = location.day,hour =  location.hour, latitude = location.latitude, longitude = location.longitude, probability = location.probability).delete()
+		return [CurrentLocation.json(location) for location in CurrentLocation.query.all()]

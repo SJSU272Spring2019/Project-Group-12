@@ -32,9 +32,9 @@ locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "lo
 
 
 # Change this value for your machine
-#username = 'renefigueroa'
-#sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
-sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
+username = 'renfigue'
+sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
+#sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
 
 import model_v2
 
@@ -175,7 +175,7 @@ def determine_day(day_string):
 		return "6"
 
 def format_time(time):
-	match = re.search('(\d{2}):(\d{2}):(\d{2})', time)
+	match = re.search('(\d{2}|\d{1}):(\d{2}):(\d{2})', time)
 	return match.group(1)
 
 
