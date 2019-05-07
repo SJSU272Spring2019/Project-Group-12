@@ -14,7 +14,8 @@ locations = []
 
 
 username = 'renefigueroa'
-sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
+#sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
+sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
 
 import model_v2
 
@@ -22,13 +23,9 @@ import model_v2
 #make sure there is a set of data saved under the API directory
 testing = model_v2.load_testing_data()
 
-@app.route("/#map")
-def about_page():
-	return render_template("index.html")
-
-
 
 @app.route("/", methods=["GET", "POST"])
+@app.route("/index.html", methods=["GET", "POST"])
 def car_break_ins_page():
 	if request.method == "POST":
 		_day = request.form.get("day", "")
@@ -156,6 +153,23 @@ def determine_day(day_string):
 def format_time(time):
 	match = re.search('(\d{2}):(\d{2}):(\d{2})', time)
 	return match.group(1)
+
+
+
+
+#maps page
+@app.route("/advanced_table.html")
+def about_page2():
+	return render_template("advanced_table.html")
+
+
+#table page
+@app.route("/google_maps.html")
+def about_page3():
+	return render_template("google_maps.html")
+
+
+
 
 
 if __name__ == "__main__":
