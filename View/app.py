@@ -10,7 +10,14 @@ import re
 from settings import *
 from CurrentLocation import *
 
-locations = []
+locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 31.2},
+{"day": "Tuesday", "hour": "12:00:00", "latitude": "37.338345", "longitude": "-121.880882", "probability": 39.26}, 
+{"day": "Sunday", "hour": "12:00:00", "latitude": "37.331386", "longitude": "-121.883021", "probability": 69.58}, 
+{"day": "Wednesday", "hour": "12:00:00", "latitude": "37.332566", "longitude": "-121.885002", "probability": 47.99}, 
+{"day": "Thursday", "hour": "12:00:00", "latitude": "37.333202", "longitude": "-121.890130", "probability": 60.47}, 
+{"day": "Friday", "hour": "12:00:00", "latitude": "37.330216", "longitude": "-121.887609", "probability": 70.45}, 
+{"day": "Saturday", "hour": "12:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 70.72}] 
+
 
 
 username = 'Vignesh'
@@ -22,10 +29,14 @@ import model_v2
 #make sure there is a set of data saved under the API directory
 testing = model_v2.load_testing_data()
 
-@app.route("/interactivemap.html")
+@app.route("/map.html", methods=["GET", "POST"])
 def map_page():
 	#return "Hi map!"
-	return render_template("interactivemap.html")
+	return render_template("map.html", locations=locations)
+
+@app.route("/interactivemap.html")
+def imap_page():
+	return render_template("interactivemap.html", locations=locations)
 
 # @app.route("/#map")
 # def mapview():
@@ -57,7 +68,7 @@ def map_page():
 #     )
 #     return render_template('map.html', mymap=mymap, sndmap=sndmap)
 
-@app.route("/about.html")
+@app.route("/#about")
 def about_page():
 	return render_template("about.html")
 
@@ -190,6 +201,26 @@ def determine_day(day_string):
 def format_time(time):
 	match = re.search('(\d{2}):(\d{2}):(\d{2})', time)
 	return match.group(1)
+
+# @app.route("/google_map.html")
+# def about_page3():
+# 	return render_template("google_map.html")
+
+# GEN_HTML = "document.html" 
+# f = open(GEN_HTML,'w')
+# str1 = 'my name is :'
+# str2 = '--zongxp--'
+ 
+# message = """
+# <html>
+# <head></head>
+# <body>
+# <p>%s</p>
+
+# </body>
+# </html>"""%(locations)
+# f.write(message) 
+# f.close()
 
 
 if __name__ == "__main__":
