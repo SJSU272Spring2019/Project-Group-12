@@ -30,11 +30,11 @@ locations = []
 
 locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 31.2},
 {"day": "Tuesday", "hour": "12:00:00", "latitude": "37.338345", "longitude": "-121.880882", "probability": 39.26}, 
-{"day": "Sunday", "hour": "12:00:00", "latitude": "37.331386", "longitude": "-121.883021", "probability": 69.58}, 
-{"day": "Wednesday", "hour": "12:00:00", "latitude": "37.332566", "longitude": "-121.885002", "probability": 47.99}, 
-{"day": "Thursday", "hour": "12:00:00", "latitude": "37.333202", "longitude": "-121.890130", "probability": 60.47}, 
-{"day": "Friday", "hour": "12:00:00", "latitude": "37.330216", "longitude": "-121.887609", "probability": 70.45}, 
-{"day": "Saturday", "hour": "12:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 70.72}] 
+{"day": "Sunday", "hour": "01:00:00", "latitude": "37.331386", "longitude": "-121.883021", "probability": 69.58}, 
+{"day": "Wednesday", "hour": "16:00:00", "latitude": "37.332566", "longitude": "-121.885002", "probability": 47.99}, 
+{"day": "Thursday", "hour": "15:00:00", "latitude": "37.333202", "longitude": "-121.890130", "probability": 60.47}, 
+{"day": "Friday", "hour": "19:00:00", "latitude": "37.330216", "longitude": "-121.887609", "probability": 70.45}, 
+{"day": "Saturday", "hour": "18:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 70.72}] 
 
 
 # Change this value for your machine
