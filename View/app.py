@@ -38,8 +38,8 @@ locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "lo
 
 
 # Change this value for your machine
-username = 'Vignesh'
-sys.path.append('/Users/'+username+'/Documents/CMPE272Project/Project-Group-12/View')
+username = 'renfigue'
+sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
 #sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
 
 import model_v2
@@ -156,20 +156,9 @@ def get_probability():
 	return jsonify(result)
 
 #http://127.0.0.1:5000/current_location?day=0&hour=23&latitude=37.41074&longitude=-121.95337
-# @app.route('/current_location', methods=['DELETE'])
-# def delete_current_location():
-# 	day = request.args.get('day', None)
-# 	hour = request.args.get('hour', None)
-# 	latitude = request.args.get('latitude', None)
-# 	longitude = request.args.get('longitude', None)
-# 	if(CurrentLocation.delete_current_parameters(day,hour,latitude,longitude)):
-# 		response = Response("", status=204)
-# 		return response
-# 	invalidCurrentLocationErrorMsg = {
-# 		"error": "Current location provided not found, so unable to delete."
-# 	}
-# 	response = Response(json.dumps(invalidCurrentLocationErrorMsg), status=404, mimetype='application/json')
-# 	return response
+@app.route('/delete', methods=['DELETE'])
+def delete_current_location():
+	return jsonify({'Current_Locations':CurrentLocation.clear_data_base()})
 
 def determine_day(day_string):
 	day_string = day_string.lower()
