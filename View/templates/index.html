@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>Break-In Monitor</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -87,132 +87,115 @@
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-9 main-chart">
-            <!--CUSTOM CHART START -->
-            <div class="border-head">
-              <h3>USER VISITS</h3>
-            </div>
-            <div class="custom-bar-chart">
-              <ul class="y-axis">
-                <li><span>10.000</span></li>
-                <li><span>8.000</span></li>
-                <li><span>6.000</span></li>
-                <li><span>4.000</span></li>
-                <li><span>2.000</span></li>
-                <li><span>0</span></li>
-              </ul>
-              <div class="bar">
-                <div class="title">JAN</div>
-                <div class="value tooltips" data-original-title="8.500" data-toggle="tooltip" data-placement="top">85%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">FEB</div>
-                <div class="value tooltips" data-original-title="5.000" data-toggle="tooltip" data-placement="top">50%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">MAR</div>
-                <div class="value tooltips" data-original-title="6.000" data-toggle="tooltip" data-placement="top">60%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">APR</div>
-                <div class="value tooltips" data-original-title="4.500" data-toggle="tooltip" data-placement="top">45%</div>
-              </div>
-              <div class="bar">
-                <div class="title">MAY</div>
-                <div class="value tooltips" data-original-title="3.200" data-toggle="tooltip" data-placement="top">32%</div>
-              </div>
-              <div class="bar ">
-                <div class="title">JUN</div>
-                <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top">62%</div>
-              </div>
-              <div class="bar">
-                <div class="title">JUL</div>
-                <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">75%</div>
-              </div>
-            </div>
-            <!--custom chart end-->
-            <div class="row mt">
-              <!-- SERVER STATUS PANELS -->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="grey-panel pn donut-chart">
-                  <div class="grey-header">
-                    <h5>SERVER LOAD</h5>
-                  </div>
-                  <canvas id="serverstatus01" height="120" width="120"></canvas>
-                  <script>
-                    var doughnutData = [{
-                        value: 70,
-                        color: "#FF6B6B"
-                      },
-                      {
-                        value: 30,
-                        color: "#fdfdfd"
-                      }
-                    ];
-                    var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
-                  </script>
-                  <div class="row">
-                    <div class="col-sm-6 col-xs-6 goleft">
-                      <p>Usage<br/>Increase:</p>
-                    </div>
-                    <div class="col-sm-6 col-xs-6">
-                      <h2>21%</h2>
-                    </div>
-                  </div>
-                </div>
-                <!-- /grey-panel -->
-              </div>
-              <!-- /col-md-4-->
-              <div class="col-md-4 col-sm-4 mb">
-                <div class="darkblue-panel pn">
-                  <div class="darkblue-header">
-                    <h5>DROPBOX STATICS</h5>
-                  </div>
-                  <canvas id="serverstatus02" height="120" width="120"></canvas>
-                  <script>
-                    var doughnutData = [{
-                        value: 60,
-                        color: "#1c9ca7"
-                      },
-                      {
-                        value: 40,
-                        color: "#f68275"
-                      }
-                    ];
-                    var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
-                  </script>
-                  <p>April 17, 2014</p>
-                  <footer>
-                    <div class="pull-left">
-                      <h5><i class="fa fa-hdd-o"></i> 17 GB</h5>
-                    </div>
-                    <div class="pull-right">
-                      <h5>60% Used</h5>
-                    </div>
-                  </footer>
-                </div>
-                <!--  /darkblue panel -->
-              </div>
-              <!-- /col-md-4 -->
-              <div class="col-md-4 col-sm-4 mb">
-                <!-- REVENUE PANEL -->
-                <div class="green-panel pn">
-                  <div class="green-header">
-                    <h5>REVENUE</h5>
-                  </div>
-                  <div class="chart mt">
-                    <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
-                  </div>
-                  <p class="mt"><b>$ 17,980</b><br/>Month Income</p>
-                </div>
-              </div>
-              <!-- /col-md-4 -->
-            </div>
-            <!-- /row -->
+          <style>
+          img.one {
+            height: 70%;
+            width:70%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          </style>
+          <img class="one" src="./static/dash/static/img/pic.png" width="960" height="600">
+          <div>
+            <div style="width: 60%; margin: 0px auto;"><h3>Developed by Alan Hsueh, Rene Figueroa, Vignesh T, and Haoran Chen.</h3></div>
             
-              <!-- /col-md-4 -->
+            <div class="row mt mb">              
+          <div class="col-lg-12">
+            <h3>&ensp;<i class="fa fa-angle-right"></i>&ensp;How do I use the Break-In Monitor?</h3>
+            <br>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="dmbox">
+                <div class="service-icon">
+                  <a class="" href="advanced_table.html#"><i class="dm-icon fa fa-question fa-3x"></i></a>
+                </div>
+                <h4>1. Query A Parking Spot</h4>
+                <p>Input a desired <b>Day of The Week</b>, <b>Time of Day</b>, and <b>Geographic Coordinates</b>.</p>
+              </div>
             </div>
-            <!-- /row -->
+            <!-- end dmbox -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="dmbox">
+                <div class="service-icon">
+                  <a class="" href="advanced_table.html#"><i class="dm-icon fa fa-gears fa-3x"></i></a>
+                </div>
+                <h4>2. Calculate the Risk</h4>
+                <p>Our <b>Machine Learning Model</b> accepts the parameters provided, and runs them in the backend script.</p>
+              </div>
+            </div>
+            <!-- end dmbox -->
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="dmbox">
+                <div class="service-icon">
+                  <a class="" href="google_maps.html#"><i class="dm-icon fa fa-map-marker fa-3x"></i></a>
+                </div>
+                <h4>3. View the Map</h4>
+                <p>With our calculated probability, you can see all queried parking locations on a user-friendly <b>Google Map.</b></p>
+              </div>
+            </div>
+            <!-- end dmbox -->
+          </div>
+          <!--  /col-lg-12 -->
+        </div>
+        <!-- /row -->
+        <div class="row content-panel">
+          <h2 class="centered">Frequently Asked Questions</h2>
+          <div class="col-md-10 col-md-offset-1 mt mb">
+            <div class="accordion" id="accordion2">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="faq.html#collapseOne">
+                    <em class="glyphicon glyphicon-chevron-right icon-fixed-width"></em>Where do we get our data?
+                    </a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse in">
+                  <div class="accordion-inner">
+                    <p>Our data sets are taken from the Santa Clara County Sheriff.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="faq.html#collapseTwo">
+                    <em class="glyphicon glyphicon-chevron-right icon-fixed-width"></em>How accurate is the machine learning model?
+                    </a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <p>Currently, the model is only 70% accurate. This may affect percentage outcome values.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="faq.html#collapseThree">
+                    <em class="glyphicon glyphicon-chevron-right icon-fixed-width"></em>What do the color indicators mean for nodes?
+                    </a>
+                </div>
+                <div id="collapseThree" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <p>Green: low risk. Yellow: slight risk. Orange: medium risk. Red: high risk.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="faq.html#collapseFour">
+                    <em class="glyphicon glyphicon-chevron-right icon-fixed-width"></em>Is this app viewable on mobile?
+                    </a>
+                </div>
+                <div id="collapseFour" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <p>Yes, the Break-In Monitor is supported on mobile devices including tablets and smartphones.</p>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <!-- end accordion -->
+          </div>
+          <!-- col-md-10 -->
+        </div>
+         
           </div>
           <!-- /col-lg-9 END SECTION MIDDLE -->
           <!-- **********************************************************************************************************************************************************
