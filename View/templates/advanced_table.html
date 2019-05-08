@@ -140,7 +140,7 @@
                     <th>Latitude</th>
                     <th>Longitude</th>
                     <th>Probability</th>
-                    <th>Actions</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -152,8 +152,8 @@
                     <td>{{ location.longitude }}</td>
                     <td>{{ location.probability }}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm">Edit</button>
-                        <button class="btn btn-danger btn-sm">Delete</button>
+                       <!--  <button class="btn btn-primary btn-sm"></button>
+                        <button class="btn btn-danger btn-sm"></button> -->
                     </td>
                 </tr>
                 {% endfor %}
@@ -164,9 +164,39 @@
           <!-- page end-->
         </div>
         <div class="page-header">
-         <!-- <h3>
-          {{locations}}               
-          </h3> -->
+          <h3>
+            <!-- Debug for printing the first location, then the lat/long for first location
+            first index is the index in the list. Second index is parameter 
+              in order of day, hour, lat, long, prob
+            -->
+          <!-- {{locations[0]}}
+          <br>
+          lat:
+          {{locations[0]['latitude']}}  
+          <br>
+          long:
+          {{locations[0]['longitude']}}
+          end                   
+           
+          <br>
+          <br>
+          <script>          
+              var dict = JSON.stringify("{{ locations[0] }}");
+              document.write(dict);
+
+              document.write ("<br>");
+
+
+              var lat = JSON.stringify("{{ locations[0]['latitude'] }}");
+              document.write(lat);
+
+              document.write ("<br>");
+
+
+              var len = JSON.stringify("{{ locations|length }}");
+              document.write(len);
+         </script> -->
+       </h3>
         <h1>Add new query (location, time, and day)</h1>
         </div>    
         <div class="row">

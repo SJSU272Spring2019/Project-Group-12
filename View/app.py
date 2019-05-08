@@ -5,6 +5,12 @@ import json
 import tensorflow as tf
 import requests
 import re
+from flask_googlemaps import GoogleMaps
+from flask_googlemaps import Map
+
+app = Flask(__name__, template_folder=".")
+GoogleMaps(app, key="AIzaSyCXErb05dCXKJWDOHHqK4eUyqLKL6Af7kU")
+
 #enter your username
 
 from settings import *
@@ -33,8 +39,8 @@ locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "lo
 
 # Change this value for your machine
 username = 'renfigue'
-sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
-#sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
+#sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
+sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
 
 import model_v2
 
@@ -83,6 +89,14 @@ def car_break_ins_page():
 @app.route('/current_locations')
 def get_all_parameters():
 	return jsonify({'Current_Locations':CurrentLocation.get_all_parameters()})
+
+
+#table page
+@app.route("/google_maps.html", methods=["GET", "POST"])
+def about_page3():
+	# creating a map in the view    
+	return render_template("google_maps.html",locations=locations)
+
 
 
 #checks the parameters are ok
@@ -177,22 +191,6 @@ def determine_day(day_string):
 def format_time(time):
 	match = re.search('(\d{2}|\d{1}):(\d{2}):(\d{2})', time)
 	return match.group(1)
-
-
-
-
-
-	
-
-
-#table page
-@app.route("/google_maps.html")
-def about_page3():
-	return render_template("google_maps.html")
-
-
-
-
 
 if __name__ == "__main__":
 	app.run(debug=True, use_reloader=True)
