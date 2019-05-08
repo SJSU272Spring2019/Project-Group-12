@@ -96,11 +96,42 @@
         <!--The div element for the map -->
              <div id="map"></div>
 
+
               <script>
-              // Initialize and add the map
-              function initMap(locations) {
-                var dict = JSON.stringify("{{locations[0]}}");
-                document.write(dict);
+                var regex = new RegExp(/\;(\w+)\&.*\;(\d*\:\d*\:\d*)\&.*\;([-]*\d*\.?\d+)\&.*\;([-]*\d*\.?\d+)\&.*\,.(\d*\.\d*)/);
+
+                // Initialize and add the map
+              function initMap() {
+                //test = JSON.stringify("{{locations}}");
+                //console.log(test)
+                //console.log("{{locations}}")
+
+                var dict = {};
+                var count = 0;
+                var temp
+
+                {% for l in locations %}
+                //console.log("{{l}}")
+               // console.log("{{l['hour']}}")
+                               // console.log("{{l['probability']}}")
+
+
+                temp = ("{{[l['day'],l['hour'],l['latitude'],l['longitude'],l['probability']]}}")
+                temp = JSON.stringify(temp)
+                //console.log(temp)
+                dict[count] = temp.match(regex)
+
+                count++
+                {% endfor %}
+
+                
+
+                //console.log(dict[0])                
+
+
+                //console.log(dict[0].substring(1, lng1.length-1))
+
+                console.log("testing:\n")  
                 
                 document.write("<br>");
 
@@ -121,6 +152,8 @@
                 console.log(lng1);
 
                 var len = JSON.stringify("{{locations|length}}");
+                len = len.substring(1, len.length-1);
+                len = parseFloat(len);
                 console.log(len);
                 
 
@@ -128,9 +161,93 @@
                 
 
                 var map = new google.maps.Map(
-                    document.getElementById('map'), {zoom: 8, center: location1});
+                    document.getElementById('map'), {zoom: 13, center: location1});
 
-                var marker1 = new google.maps.Marker({position: location1, map: map});
+                //var marker1 = new google.maps.Marker({position: location1, map: map});
+
+                var markers = new Array(99); 
+                console.log(dict)
+
+
+                contentString = '<placeholder text>'
+
+
+                var myloc, mylat, mylng, tempmarker
+                var infowindow = new google.maps.InfoWindow({
+                   content: contentString
+                 });
+
+                for (var i = 1; i < len; i++){
+                  //console.log(dict[i])
+                  //console.log(i)
+                  //console.log(dict[i][3])
+                  mylat = dict[i][3]
+                 // mylat = mylat.substring(1, mylat,length-1)
+                  mylat = parseFloat(mylat)
+                  mylng = dict[i][4]
+                  //mylng = mylng.substring(1, mylng,length-1)
+                  mylng = parseFloat(mylng)
+                  myloc = {lat: mylat, lng: mylng}
+
+                  prob = dict[i][5]
+                  prob = parseFloat(prob);
+
+                  //console.log(myloc)
+
+                  var color = null;
+ 
+                  if(prob <= 40){
+                    color = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+                  }
+                  else if(prob > 40 && prob <= 60){
+                    color = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+                  }
+   
+                  else if(prob > 60 && prob <= 80){
+                    color = "http://maps.google.com/mapfiles/ms/icons/orange-dot.png";
+                  }
+   
+                  else if(prob > 80 && prob <= 100){
+                    color = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+                  }
+
+                  markers[i] = new google.maps.Marker({position: myloc, map: map, id: i, icon: {url: color}, description: 
+                    ('<div id="content">'+
+                    '<div id="siteNotice">'+
+                    '</div>'+
+                    '<h1 id="firstHeading" class="firstHeading">Chance of Break-In: '+dict[i][5]+'%</h1>'+
+                    '<div id="bodyContent">'+
+                    '<p><b>'+dict[i][1]+'</b> at <b>'+dict[i][2]
+                    +'</b>. Coordinates: <b>'+ dict[i][3]+', '+dict[i][4]+                 
+                    '</b>.</p>'+
+                    '<p></p>'+
+                    '</div>'+
+                    '</div>')
+                  });
+                  //var tempmarker = new google.maps.Marker({position: myloc, map: map})
+                  //tempmarker.addListener('click', function() {
+                   //    infowindow.open(map, tempmarker);
+                   //  });;
+                  // markers[i] = tempmarker
+
+                    // markers[i] = markers[i].addListener('click', function() {
+                    //   infowindow.open(map, marker);
+                    // });
+                    
+
+                  
+                    //infowindow.open(map, markers[i]);
+                    google.maps.event.addListener(markers[i], 'click', function () {
+                        //alert(markers[this.id])
+                        //alert(this.id)
+                        infowindow.setContent(markers[this.id].description);
+                        infowindow.open(map, markers[this.id]);
+                    })
+                   
+
+                }
+                
+                console.log(markers)
               }
               </script>
               <script async defer

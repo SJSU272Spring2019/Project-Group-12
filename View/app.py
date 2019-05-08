@@ -38,9 +38,9 @@ locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "lo
 
 
 # Change this value for your machine
-username = 'renfigue'
-#sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
-sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
+username = 'Vignesh'
+sys.path.append('/Users/'+username+'/Documents/CMPE272Project/Project-Group-12/View')
+#sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
 
 import model_v2
 
