@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>Break-In Monitor</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -91,7 +91,7 @@
           <div class="col-sm-12">
             <section class="panel">
               <header class="panel-heading">
-                <h2>Google Map with Location List</h2>
+                <h2><i class="fa fa-angle-right"></i>&ensp;Google Map Parking Node Display</h2>
               </header>
         <!--The div element for the map -->
              <div id="map"></div>
@@ -102,7 +102,14 @@
               }
               </style>
 
-            <script>
+             <style>
+             #map {
+             height: 900px;  /* The height is 400 pixels */
+             width: 100%;  /* The width is the width of the web page */
+             }  
+             </style>
+
+              <script>
                 var regex = new RegExp(/\;(\w+)\&.*\;(\d*\:\d*\:\d*)\&.*\;([-]*\d*\.?\d+)\&.*\;([-]*\d*\.?\d+)\&.*\,.(\d*\.\d*)/);
 
                 // Initialize and add the map
@@ -202,18 +209,23 @@
                   var color = null;
  
                   if(prob <= 40){
-                    color = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+                    //color = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+                    color = "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_green"+i+".png";
+
                   }
                   else if(prob > 40 && prob <= 60){
-                    color = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+                    //color = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+                    color = "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_yellow"+i+".png";
                   }
    
                   else if(prob > 60 && prob <= 80){
-                    color = "http://maps.google.com/mapfiles/ms/icons/orange-dot.png";
+                    //color = "http://maps.google.com/mapfiles/ms/icons/orange-dot.png";
+                    color = "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_orange"+i+".png";
                   }
    
                   else if(prob > 80 && prob <= 100){
-                    color = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+                    //color = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+                    color = "https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_red"+i+".png";
                   }
 
                   markers[i] = new google.maps.Marker({position: myloc, map: map, id: i, icon: {url: color}, description: 
@@ -256,7 +268,7 @@
               }
               </script>
               <script async defer
-              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz9lQakgGOq2JmL2QQA_Tz8SIOB6dxzgo&callback=initMap">
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaL_YzR5zTL8kB0DKsg2ABa08L1JWDTX0&callback=initMap">
               </script>
             </section>
           </div>

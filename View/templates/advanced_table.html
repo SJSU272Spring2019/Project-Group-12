@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>Break-In Monitor</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -87,7 +87,7 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Table Queries</h3>
+        <h3><i class="fa fa-angle-right"></i>&ensp;Table Queries</h3>
         <div class="row mb">
           <!-- page start-->
           <div class="content-panel">
@@ -143,7 +143,7 @@
                     <th></th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody>                  
                 {% for location in locations %}
                 <tr>
                     <td>{{ location.day }}</td>
@@ -197,9 +197,10 @@
               document.write(len);
          </script> -->
        </h3>
-        <h1>Add new query (location, time, and day)</h1>
+        <h2><i class="fa fa-angle-right"></i>&ensp;Add New Query</h2>
+        <h3> (Day of the Week, Time, and Latitude/Longitude)</h3>
         </div>    
-        <div class="row">
+        <div class="row" >
             <div class="col-md-8">
                 <form method="POST">
                     <div class="form-group">
@@ -223,6 +224,7 @@
                 </form>
             </div>
         </div>
+
         <!-- /row -->
       </section>
       <!-- /wrapper -->
@@ -230,6 +232,11 @@
     <!-- /MAIN CONTENT -->
     <!--main content end-->
     <!--footer start-->
+
+        <br>
+        <br>
+        <br>        
+        <br>
     <footer class="site-footer">
       <div class="text-center">
         <p>
@@ -282,7 +289,7 @@
        */
       var nCloneTh = document.createElement('th');
       var nCloneTd = document.createElement('td');
-      nCloneTd.innerHTML = '<img src="./static/dash/static/lib/advanced-datatable/images/details_open.png">';
+      nCloneTd.innerHTML = '<img src="./static/dash/static/lib/advanced-datatable/images/forward_enabled_hover.png">';
       nCloneTd.className = "center";
 
       $('#hidden-table-info thead tr').each(function() {
@@ -311,16 +318,16 @@
        * rather it is done here
        */
       $('#hidden-table-info tbody td img').live('click', function() {
-        var nTr = $(this).parents('tr')[0];
-        if (oTable.fnIsOpen(nTr)) {
-          /* This row is already open - close it */
-          this.src = "lib/advanced-datatable/media/images/details_open.png";
-          oTable.fnClose(nTr);
-        } else {
-          /* Open this row */
-          this.src = "lib/advanced-datatable/images/details_close.png";
-          oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
-        }
+        // var nTr = $(this).parents('tr')[0];
+        // if (oTable.fnIsOpen(nTr)) {
+        //   /* This row is already open - close it */
+        //   this.src = "lib/advanced-datatable/media/images/details_open.png";
+        //   oTable.fnClose(nTr);
+        // } else {
+        //   /* Open this row */
+        //   this.src = "lib/advanced-datatable/images/details_close.png";
+        //   oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
+        // }
       });
     });
   </script>
