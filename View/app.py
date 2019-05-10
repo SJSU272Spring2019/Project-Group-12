@@ -16,18 +16,7 @@ GoogleMaps(app, key="AIzaSyCXErb05dCXKJWDOHHqK4eUyqLKL6Af7kU")
 from settings import *
 from CurrentLocation import *
 
-#{"day": "Monday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 51.52}
 locations = []
-#locations.append({"day": "Sunday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 69.95})
-#locations.append({'day': 'Monday', 'hour': '12:00:00', 'latitude': '37.3223', 'longitude': '-121.3423', 'probability': 51.52})
-#locations.append({"day": "Tuesday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 60.05})
-#locations.append({"day": "Wednesday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 68.03})
-#locations.append({"day": "Thursday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 74.75})
-#locations.append({"day": "Friday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 79.33})
-#locations.append({"day": "Saturday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 78.22})
-
-#locations.append({"day": "Monday", "hour": "12:00:00", "latitude": "37.3223", "longitude": "-121.3423", "probability": 51.52})
-
 locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 31.2},
 {"day": "Tuesday", "hour": "12:00:00", "latitude": "37.338345", "longitude": "-121.880882", "probability": 39.26}, 
 {"day": "Sunday", "hour": "01:00:00", "latitude": "37.331386", "longitude": "-121.883021", "probability": 69.58}, 
@@ -37,10 +26,10 @@ locations = [ {"day": "Monday", "hour": "00:00:00", "latitude": "37.349428", "lo
 {"day": "Saturday", "hour": "18:00:00", "latitude": "37.349428", "longitude": "-121.905195", "probability": 70.72}] 
 
 
-# Change this value for your machine
-username = 'renfigue'
-sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
-#sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
+# Change this value for your machine. The path must match the models folder.
+#username = 'renfigue'
+#sys.path.append('/Users/'+username+'/Documents/GitHub/Project-Group-12/Models')
+sys.path.append('/prog/GitHub/group12v2/Project-Group-12/Models')
 
 import model_v2
 
@@ -81,7 +70,6 @@ def car_break_ins_page():
 
 		return redirect(url_for("car_break_ins_page"))
 		
-	#return render_template("index.html", locations=locations)
 	return render_template("advanced_table.html", locations=locations)
 
 
@@ -109,32 +97,6 @@ def validCurrentParameters(parametersObject):
 		return True
 	else:
 		return False
-
-# POST /current_parameters
-# User will send this as a json object
-
-# {
-# 	"day": 0 ,
-#  	"hour": 12,
-#  	"latitude": 37.434243,
-#  	"longitude": -121.24232
-# }
-
-# @app.route('/current_parameters', methods=['POST'])
-# def add_current_parameters():
-# 	#first get the data from client
-# 	request_data = request.get_json()
-# 	if(validCurrentParameters(request_data)):
-# 		CurrentLocation.add_current_location_parameters(request_data['day'], request_data['hour'], request_data['latitude'], request_data['longitude'])
-# 		response = Response("",status=201,mimetype='application/json')
-# 		response.headers['Location'] = "/current_location/" + str(request_data['latitude']) + '&' + str(request_data['longitude'])
-# 		return response
-# 	else:
-# 		invalidCurrentLocationErrorMsg = {
-# 		"error": "Invalid current location, day or time passed in request",
-# 		}
-# 		response  = Response(json.dumps(invalidCurrentLocationErrorMsg), status=400, mimetype='application/json')
-# 		return response
 
 @app.route('/probability')
 #sample call 

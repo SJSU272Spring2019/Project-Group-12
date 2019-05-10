@@ -93,46 +93,6 @@
           <div class="content-panel">
             <div class="adv-table">
               <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
-                <!--<thead>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th class="hidden-phone">Platform(s)</th>
-                    <th class="hidden-phone">Engine version</th>
-                    <th class="hidden-phone">CSS grade</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="gradeX">
-                    <td>Trident</td>
-                    <td>Internet Explorer 4.0</td>
-                    <td class="hidden-phone">Win 95+</td>
-                    <td class="center hidden-phone">4</td>
-                    <td class="center hidden-phone">X</td>
-                  </tr>
-                  <tr class="gradeC">
-                    <td>Trident</td>
-                    <td>Internet Explorer 5.0</td>
-                    <td class="hidden-phone">Win 95+</td>
-                    <td class="center hidden-phone">5</td>
-                    <td class="center hidden-phone">C</td>
-                  </tr>
-                  <tr class="gradeA">
-                    <td>Trident</td>
-                    <td>Internet Explorer 5.5</td>
-                    <td class="hidden-phone">Win 95+</td>
-                    <td class="center hidden-phone">5.5</td>
-                    <td class="center hidden-phone">A</td>
-                  </tr>
-                  <tr class="gradeA">
-                    <td>Trident</td>
-                    <td>Internet Explorer 6</td>
-                    <td class="hidden-phone">Win 98+</td>
-                    <td class="center hidden-phone">6</td>
-                    <td class="center hidden-phone">A</td>
-                  </tr>                               
-                </tbody> -->
-
                 <thead>
                 <tr>
                     <th>Day</th>
@@ -165,37 +125,6 @@
         </div>
         <div class="page-header">
           <h3>
-            <!-- Debug for printing the first location, then the lat/long for first location
-            first index is the index in the list. Second index is parameter 
-              in order of day, hour, lat, long, prob
-            -->
-          <!-- {{locations[0]}}
-          <br>
-          lat:
-          {{locations[0]['latitude']}}  
-          <br>
-          long:
-          {{locations[0]['longitude']}}
-          end                   
-           
-          <br>
-          <br>
-          <script>          
-              var dict = JSON.stringify("{{ locations[0] }}");
-              document.write(dict);
-
-              document.write ("<br>");
-
-
-              var lat = JSON.stringify("{{ locations[0]['latitude'] }}");
-              document.write(lat);
-
-              document.write ("<br>");
-
-
-              var len = JSON.stringify("{{ locations|length }}");
-              document.write(len);
-         </script> -->
        </h3>
         <h2><i class="fa fa-angle-right"></i>&ensp;Add New Query</h2>
         <h3> (Day of the Week, Time, and Latitude/Longitude)</h3>
@@ -318,16 +247,7 @@
        * rather it is done here
        */
       $('#hidden-table-info tbody td img').live('click', function() {
-        // var nTr = $(this).parents('tr')[0];
-        // if (oTable.fnIsOpen(nTr)) {
-        //   /* This row is already open - close it */
-        //   this.src = "lib/advanced-datatable/media/images/details_open.png";
-        //   oTable.fnClose(nTr);
-        // } else {
-        //   /* Open this row */
-        //   this.src = "lib/advanced-datatable/images/details_close.png";
-        //   oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
-        // }
+  
       });
     });
   </script>
